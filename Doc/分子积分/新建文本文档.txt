@@ -1,0 +1,12 @@
+《fundmentals of molecular integrals evaluation》里面的大部分内容来自《Taketa-Huzinaga-Oohata-1966》（10.1143/JPSJ.21.2313），是最早的直角坐标高斯积分的文章，算法比较老。
+后来主要的发展：
+《Dupuis-King-Rys-1976》（10.1063/1.432807）应用多项式的高斯弦理论，绕过了boys函数的求值。
+《McMurchie-Davidson-1978》（10.1016/0021-9991(78)90092-X）将直角坐标高斯函数的乘积用哈密顿多项式展开，利用哈密顿多项式的地推关系。
+《Obara-Saika-1986》（10.1063/1.450106）找到了直角坐标高斯积分的递推关系，但是递推式中有8项，直接用这个递推式不经济。
+《Head-Gordon-Pople-1988》（10.1063/1.455553）再Obara-Saika的基础上，又找到一个递推关系，这个关系只有两项，而且可以应用于收缩后的基函数。
+《Gill-Head-Gordon-Pople-1989》（10.1002/qua.560360831）结合Head-Gordon-Pople和McMurchie-Davidson；这个算法对求积分的导数也有很有优势。
+《PRISM-1991》（10.1002/qua.560400605）找到从地推路径中的浮点操作数最小的路径，高斯里面似乎还在用这个算法哦。
+
+
+
+Neese专门写了DOI: 10.1002/jcc.26942对ORCA 5.0加入的SHARK电子积分代码进行详细介绍。

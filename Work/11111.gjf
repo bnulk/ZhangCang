@@ -1,0 +1,14 @@
+%mem=1000MB
+%chk=LiuKun1.chk LiuKun2.chk
+# td=(nstates=5,root=0:root=1)/sto-3g cmd=g16 convergence=normal
+hessiann=1 mecp=ln method=(b3lyp:hf) scf=maxcycle=999} stepsize=1
+task=mecp {#p
+
+T1
+
+0 1
+ H                  0.00000000    0.00000000    0.00000000
+ N                  0.00000000    0.00000000    1.08000000
+ C                  1.42902044    0.00000000    1.53596115
+ O                  2.05255959   -0.03506582    2.78894532
+
