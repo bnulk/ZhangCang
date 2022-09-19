@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ZhangCang.NumericalRecipes;
 
 namespace ZhangCang.LinearAlgebra
 {
@@ -227,9 +228,24 @@ namespace ZhangCang.LinearAlgebra
                     }
                 } while (m != l);
             }
-
             return;
         }
 
+
+        /// <summary>
+        /// 用Householder和QL方案求解本征方程
+        /// </summary>
+        /// <param name="a">输入矩阵，被本征向量取代</param>
+        /// <param name="eigenvalue">本征值</param>
+        public static void SolvingEigenequationsBaseOnHouseholderAndQL(ref Matrix a, out Vector eigenvalue)
+        {
+            int n = a.row;
+            eigenvalue = new Vector(n);
+            Vector e = new Vector(n);
+
+            tred2(ref a, ref eigenvalue, ref e);
+            tqli(ref eigenvalue, ref e, ref a);
+
+        }
     }
 }

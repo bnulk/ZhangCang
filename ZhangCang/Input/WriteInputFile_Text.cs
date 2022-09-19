@@ -4,14 +4,14 @@ using ZhangCang.ZhangCangIO.TextIO;
 
 namespace ZhangCang.Input
 {
-    internal class WriteResult_Text
+    internal class WriteInputFile_Text
     {
         private bool isRunThisClass;
         private Control control;
         private InputData inputData;
         private TextO textO;
 
-        public WriteResult_Text(bool isRunThisClass, Control control, InputData inputData)
+        public WriteInputFile_Text(bool isRunThisClass, Control control, InputData inputData)
         {
             this.isRunThisClass = isRunThisClass;
             this.control = control;
@@ -186,8 +186,8 @@ namespace ZhangCang.Input
                 cycle = molecule.numberOfAtoms;
                 for (i = 0; i < cycle; i++)
                 {
-                    sb.Append(molecule.atomicNumbers[i].ToString().PadLeft(3) + "     " + molecule.cartesian3[i, 0].ToString("0.000000").PadLeft(10)
-                        + molecule.cartesian3[i, 1].ToString("0.000000").PadLeft(10) + molecule.cartesian3[i, 2].ToString("0.000000").PadLeft(10) + "\n");
+                    sb.Append(molecule.atomicNumbers[i].ToString().PadLeft(3) + "     " + molecule.cartesian3[i, 0].ToString("0.000000").PadLeft(12)
+                        + molecule.cartesian3[i, 1].ToString("0.000000").PadLeft(12) + molecule.cartesian3[i, 2].ToString("0.000000").PadLeft(12) + "\n");
                 }
             }
             sb.Append("\n");
@@ -233,27 +233,30 @@ namespace ZhangCang.Input
                     }
                     else
                     {
-                        int lastCycle = molecule.numberOfAtoms - i * cycle;
-                        sb.Append("".PadRight(20));
-                        for (int j = 0; j < lastCycle; j++)
-                        {
-                            sb.Append("         " + (i * 10 + 1 + j).ToString().PadRight(3));
-                        }
-                        sb.Append("\n");
+                        int lastCycle = molecule.numberOfAtoms - 10 * cycle;
 
-                        sb.Append("atomicNumbers".PadRight(20));
-                        for (int j = 0; j < lastCycle; j++)
+                        if(lastCycle!=0)
                         {
-                            sb.Append(molecule.atomicNumbers[i * 10 + j].ToString("0.000000").PadLeft(12));
-                        }
-                        sb.Append("\n");
+                            sb.Append("".PadRight(20));
+                            for (int j = 0; j < lastCycle; j++)
+                            {
+                                sb.Append("         " + (i * 10 + 1 + j).ToString().PadRight(3));
+                            }
+                            sb.Append("\n");
+                            sb.Append("atomicNumbers".PadRight(20));
+                            for (int j = 0; j < lastCycle; j++)
+                            {
+                                sb.Append(molecule.atomicNumbers[i * 10 + j].ToString("0.000000").PadLeft(12));
+                            }
+                            sb.Append("\n");
 
-                        sb.Append("realAtomicWeights".PadRight(20));
-                        for (int j = 0; j < lastCycle; j++)
-                        {
-                            sb.Append(molecule.realAtomicWeights[i * 10 + j].ToString("0.000000").PadLeft(12));
+                            sb.Append("realAtomicWeights".PadRight(20));
+                            for (int j = 0; j < lastCycle; j++)
+                            {
+                                sb.Append(molecule.realAtomicWeights[i * 10 + j].ToString("0.000000").PadLeft(12));
+                            }
+                            sb.Append("\n");
                         }
-                        sb.Append("\n");
                     }
                 }
             }

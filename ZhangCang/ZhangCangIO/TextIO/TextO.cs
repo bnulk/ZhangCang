@@ -2,7 +2,7 @@
 
 namespace ZhangCang.ZhangCangIO.TextIO
 {
-    internal class TextO
+    internal partial class TextO
     {
         /*
         ----------------------------------------------------  类注释  开始----------------------------------------------------

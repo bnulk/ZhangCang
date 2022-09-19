@@ -1,7 +1,8 @@
-%chk=C2H6.chk
-# hf/3-21g
+%mem=1000MB
+%chk=LiuKun1.chk
+# pm3
 
-Title Card Required
+T1
 
 0 1
  C              
@@ -31,13 +32,4 @@ Title Card Required
    D3           -60.11109940
    D4            59.88891539
    D5           179.88890799
-
- 1 2 1.0 3 1.0 4 1.0 5 1.0
- 2
- 3
- 4
- 5 6 1.0 7 1.0 8 1.0
- 6
- 7
- 8
 

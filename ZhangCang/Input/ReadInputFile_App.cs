@@ -54,7 +54,7 @@ namespace ZhangCang.Input
         /// </summary>
         public void WriteResult()
         {
-            WriteResult_Text writeResult_Text = new WriteResult_Text(isRun, _control, inputData_);
+            WriteInputFile_Text writeResult_Text = new WriteInputFile_Text(isRun, _control, inputData_);
             writeResult_Text.Run();
         }
 

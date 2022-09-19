@@ -26,5 +26,10 @@ namespace ZhangCang.Data
         /// 输入内坐标
         /// </summary>
         public ZMatrix zMatrix;
+
+        public Element()
+        {
+            
+        }
     }
 }

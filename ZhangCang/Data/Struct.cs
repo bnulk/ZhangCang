@@ -31,6 +31,17 @@ namespace ZhangCang
         /// 输入文件类型
         /// </summary>
         public InputFileType inputFileType;
+
+        public Control()
+        {
+            os = OS.unknown;
+            inputFileFullPath = "";
+            inputFileDirectory = "";
+            outputFileFullPath = "";
+            inputFileDirectory = "";
+            currentDirectory = "";
+            inputFileType = InputFileType.unknown;
+        }
     }
 
     public struct Keyword
@@ -161,20 +172,36 @@ namespace ZhangCang
         /// <summary>
         /// 内坐标的连接信息
         /// </summary>
-        public int[,] connectionInfo;
+        public int[,]? connectionInfo;
         /// <summary>
         /// 内坐标的连接信息的值
         /// </summary>
-        public double[,] connectionInfoValue;
+        public double[,]? connectionInfoValue;
         /// <summary>
         /// 内坐标的参数数组
         /// </summary>
-        public string[] paraName;
+        public string[]? paraName;
         /// <summary>
         /// 内坐标的坐标数组
         /// </summary>
-        public double[] paraValue;
+        public double[]? paraValue;
+
+        public ZMatrix()
+        {
+            isExist = false;
+            atomicNumbers = null;
+            connectionInfo = null;
+            connectionInfoValue = null;
+            paraName = null;
+            paraValue = null;
+        }
     }
+
+    public struct RedundantCoordinate
+    {
+
+    }
+
 
     /// <summary>
     /// 优化收敛标准
