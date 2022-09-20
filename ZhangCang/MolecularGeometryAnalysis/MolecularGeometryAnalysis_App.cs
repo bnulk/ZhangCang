@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ZhangCang.Data;
 using ZhangCang.LinearAlgebra;
+using ZhangCang.NumericalRecipes;
 using ZhangCang.ZhangCangIO.TextIO;
 
 namespace ZhangCang.MolecularGeometryAnalysis
@@ -69,6 +70,9 @@ namespace ZhangCang.MolecularGeometryAnalysis
             //对角化惯量张量，以获得主转动惯量和惯量主轴矩阵。
             DiagonalizeInertiaTensor(mga.inertiaTensor, out mga.principalMomentsOfInertia, out mga.inertiaPrincipalAxisMatrix);
 
+            //对主转动惯量和惯量主轴矩阵排序
+            SortPrincipalMomentsOfInertiaAndInertiaPrincipalAxisMatrix(ref mga.principalMomentsOfInertia, ref mga.inertiaPrincipalAxisMatrix);
+
             //对转子进行分类
             mga.rotorClassify = ClassifyTheRotor(mga.principalMomentsOfInertia);
 
@@ -130,7 +134,52 @@ namespace ZhangCang.MolecularGeometryAnalysis
         }
 
 
+        /// <summary>
+        /// 对主转动惯量和惯量主轴矩阵排序
+        /// </summary>
+        private void SortPrincipalMomentsOfInertiaAndInertiaPrincipalAxisMatrix(ref Vector PrincipalMomentsOfInertia, ref Matrix InertiaPrincipalAxisMatrix)
+        {
+            double[] tmpSort = new double[3] { 0, 1, 2 };
+            Vector sortVector = new Vector(tmpSort);
+            int i, j;
+            double[] firstCol= new double[3];
+            double[] secondCol = new double[3];
+            double[] thirdCol = new double[3];
+            for (i=0;i<3;i++)
+            {
+                firstCol[i] = InertiaPrincipalAxisMatrix[i, 0];
+                secondCol[i] = InertiaPrincipalAxisMatrix[i, 1];
+                thirdCol[i] = InertiaPrincipalAxisMatrix[i, 2];
+            }
 
+            Sorting.sort2(ref PrincipalMomentsOfInertia, ref sortVector);
+
+            for(i=0;i<3;i++)
+            {
+                switch((int)sortVector[i])
+                {
+                    case 0:
+                        for(j=0;j<3;j++)
+                        {
+                            InertiaPrincipalAxisMatrix[j,i] = firstCol[j];
+                        }
+                        break;
+                    case 1:
+                        for (j = 0; j < 3; j++)
+                        {
+                            InertiaPrincipalAxisMatrix[j, i] = secondCol[j];
+                        }
+                        break;
+                    default:
+                        for (j = 0; j < 3; j++)
+                        {
+                            InertiaPrincipalAxisMatrix[j, i] = thirdCol[j];
+                        }
+                        break;
+                }
+            }
+
+        }
 
 
     }
