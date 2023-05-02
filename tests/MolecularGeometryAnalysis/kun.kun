@@ -1,7 +1,7 @@
 ZhangCang  0.0.1  
 2022 - 06 - 09
 
-2022/9/20 2:54:21
+2023/1/27 0:38:50
 ****************************************************************************************************
 Author Information: Liu Kun, College of Chemistry, Tianjin Normal University, Tianjin 300387, China
 Email: bnulk@foxmail.com
@@ -52,15 +52,9 @@ bnulk@foxmail.com-InputData
 ****************************************************************************************************
 
 InputFileType is Gaussian
-task=mecp cmd=g16 
-method=b3lyp:hf TD=(root=0:root=1,nstates=5) coordinateType=zMatrix
+task=sp cmd=g16 
+method=hf:hf TD=(root=0:root=1,nstates=5) coordinateType=zMatrix
 
-********** MECP Keyword **********
-MECP=ln judgement=global Convergence=normal Freq=noneisReadFirst= False
-lambda=1 stepSize=1 optCyc=100guessHessian=BFGS gradientN=1 hessianN=1
-energyCon=1E-05 maxCon=0.001 energyCon=0.0005 maxDisplace=0.005 energyCon=0.003
-showGradRatioCriterionN=4 showGradRatioCriterion=0.0001
-********** MECP Keyword End **********
 
 ****************************************************************************************************
 **********                                 Input ZMatrix                                  **********
@@ -111,8 +105,6 @@ showGradRatioCriterionN=4 showGradRatioCriterion=0.0001
    D9      =        180.00000000
 
 
-Charge=0 0 
-Multiplicity=1 3 
 
 ****************************************************************************************************
 **********                              Molecular Cartesian                               **********

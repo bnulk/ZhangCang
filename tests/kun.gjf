@@ -1,0 +1,13 @@
+%mem=1000mb
+%chk=LiuKun1.chk
+basisset=sto-3g method=HF cmd=this convergence=normal task=sp hessianN=1 stepSize=1
+ 
+T1
+ 
+0 1
+ H                  0.00000000    0.00000000    0.00000000             
+
+
+
+   
+   

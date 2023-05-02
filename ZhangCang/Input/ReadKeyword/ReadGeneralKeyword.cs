@@ -89,6 +89,9 @@ namespace ZhangCang.Input.ReadKeyword
                         case "method":
                             keyword_.strMethods = GetStrMethods(inputKeyWord[1].ToLower());
                             break;
+                        case "basisset":
+                            keyword_.basisSetName = GetBasisSet(inputKeyWord[1].ToLower());
+                            break;
                         case "optcyc":
                             keyword_.optCyc = Convert.ToInt32(inputKeyWord[1]);
                             break;
@@ -149,5 +152,8 @@ namespace ZhangCang.Input.ReadKeyword
                 }
             }
         }
+
+
+
     }
 }

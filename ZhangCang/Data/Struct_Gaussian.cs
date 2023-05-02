@@ -12,7 +12,7 @@ namespace ZhangCang.Data
         /// <summary>
         /// 原子个数
         /// </summary>
-        public int N;
+        public int numberOfAtom;
         public CoordinateType coordinateType;
         public List<string> firstSection;
         public List<string> routeSection;
@@ -26,7 +26,7 @@ namespace ZhangCang.Data
 
         public GaussianInputPackage()
         {
-            N = 0;
+            numberOfAtom = 0;
             coordinateType = CoordinateType.unknown;
             firstSection = new List<string>();
             routeSection = new List<string>();

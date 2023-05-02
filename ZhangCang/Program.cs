@@ -47,7 +47,7 @@ namespace ZhangCang
             inputApp.WriteResult();
 
             //把输入文件部分填入Element
-            Input.InputData2Element_App toElementApp = new Input.InputData2Element_App(inputData, control);
+            InputDataToElement.InputData2Element_App toElementApp = new InputDataToElement.InputData2Element_App(inputData, control);
             toElementApp.Run();
             //用输入数据驱动程序运行
             Drive_App drive_App = new Drive_App(toElementApp.Element_);

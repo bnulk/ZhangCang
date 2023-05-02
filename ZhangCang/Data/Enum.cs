@@ -41,6 +41,7 @@ namespace ZhangCang
     {
         zMatrix,
         Cartesian,
+        Modredundant,
         noInfo,
         unknown
     }
@@ -123,6 +124,17 @@ namespace ZhangCang
         unknown
     }
 
+    // <summary>
+    /// 基组名称
+    /// </summary>
+    public enum BasisSetName
+    {
+        unknown,
+        gen,
+        cgSto3g,
+        cg321g
+    }
+
     /// <summary>
     /// 命令行
     /// </summary>
@@ -134,5 +146,16 @@ namespace ZhangCang
         unknown
     }
 
+    /// <summary>
+    /// STO类型
+    /// </summary>
+    public enum StoType
+    {
+        S,
+        P,
+        D,
+        F,
+        G
+    }
 
 }

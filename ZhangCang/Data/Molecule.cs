@@ -1,7 +1,7 @@
 ﻿
 namespace ZhangCang
 {
-    internal class Molecule
+    partial class Molecule
     {
         /// <summary>
         /// 原子个数
@@ -22,10 +22,10 @@ namespace ZhangCang
         /// <summary>
         /// 电荷
         /// </summary>
-        public int[]? charge;
+        public int charge;
         /// <summary>
         /// 自旋多重度
         /// </summary>
-        public int[]? multiplicity;
+        public int multiplicity;
     }
 }

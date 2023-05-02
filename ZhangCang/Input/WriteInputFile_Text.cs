@@ -59,7 +59,7 @@ namespace ZhangCang.Input
             sb.Append(GetInputZMatrix(inputData.zMatrix));
 
             //分子
-            sb.Append(GetMoleculeInfo(inputData.molecule).ToString() + "\n");
+            sb.Append(GetMoleculeInfo(inputData.states, inputData.molecule).ToString() + "\n");
 
             textO.WriteStr(sb.ToString());
 
@@ -137,11 +137,12 @@ namespace ZhangCang.Input
         /// </summary>
         /// <param name="molecule">分子</param>
         /// <returns>分子可变字符串</returns>
-        private StringBuilder GetMoleculeInfo(Molecule molecule)
+        private StringBuilder GetMoleculeInfo(States states, Molecule molecule)
         {
             StringBuilder sb = new StringBuilder();
             int i, cycle;
 
+            /*
             //电荷和自旋多重度
             try
             {
@@ -170,6 +171,7 @@ namespace ZhangCang.Input
             {
                 throw new Input_Exception("input charge and multiplicity Error.");
             }
+            */
 
             //分子坐标
             sb.Append("\n");

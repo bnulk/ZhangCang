@@ -6,16 +6,22 @@ using System.Threading.Tasks;
 
 namespace ZhangCang.Data
 {
-    internal class GaussianElement : Element
+    internal class SinglePointData : Element
     {
-        GaussianInputPackage gaussianInputPackage;
+        List<double> energy;
+        List<double[]> gradient;
+        List<double[,]> hessian;
 
-        public GaussianElement(Element element)
+        public SinglePointData(Element element)
         {
             this.control = element.control;
             this.keyword = element.keyword;
             this.molecule = element.molecule;
             this.zMatrix = element.zMatrix;
+
+            energy = new List<double>();
+            gradient = new List<double[]>();
+            hessian = new List<double[,]>();
         }
     }
 }

@@ -1,6 +1,6 @@
 %mem=1000mb
 %chk=LiuKun1.chk LiuKun2.chk
-{#p sto-3g scf=maxcycle=999} method=b3lyp:HF td=(root=0:root=1,nstates=5) cmd=g16 convergence=normal task=mecp MECP=ln hessianN=1 stepSize=1
+{#p sto-3g scf=maxcycle=999} basisset=sto-3g method=HF:HF td=(root=0:root=1,nstates=5) cmd=g16 convergence=normal task=sp MECP=ln hessianN=1 stepSize=1
  
 T1
  

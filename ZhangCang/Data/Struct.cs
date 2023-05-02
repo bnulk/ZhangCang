@@ -49,6 +49,7 @@ namespace ZhangCang
         public Task task;                                    //计算任务
         public Cmd cmd;                                      //计算程序命令行
         public Method[] methods;                             //计算方法
+        public BasisSetName basisSetName;                    //计算基组名字
         public string[] strMethods;                          //字符串型计算方法
         public Min min;                                      //极小点优化方法
         public MECP mecp;                                    //极小势能面交叉点优化方法
@@ -83,6 +84,7 @@ namespace ZhangCang
 
             methods= new Method[1];
             strMethods= new string[1];
+            basisSetName = BasisSetName.cgSto3g;
 
             optCyc = 100;
             stepSize = 0.1;
@@ -199,7 +201,40 @@ namespace ZhangCang
 
     public struct RedundantCoordinate
     {
+        /// <summary>
+        /// 是否存在RedundantCoordinate信息
+        /// </summary>
+        public bool isExist;
+        /// <summary>
+        /// 原子序号（核电荷数）数组
+        /// </summary>
+        public int[]? atomicNumbers;
+        /// <summary>
+        /// 内坐标的连接信息
+        /// </summary>
+        public int[,]? connectionInfo;
+        /// <summary>
+        /// 内坐标的连接信息的值
+        /// </summary>
+        public double[,]? connectionInfoValue;
+        /// <summary>
+        /// 内坐标的参数数组
+        /// </summary>
+        public string[]? paraName;
+        /// <summary>
+        /// 内坐标的坐标数组
+        /// </summary>
+        public double[]? paraValue;
 
+        public RedundantCoordinate()
+        {
+            isExist = false;
+            atomicNumbers = null;
+            connectionInfo = null;
+            connectionInfoValue = null;
+            paraName = null;
+            paraValue = null;
+        }
     }
 
 
@@ -231,7 +266,17 @@ namespace ZhangCang
             maxDisplace = 0.005;
             rmsDisplace = 0.003;
         }
+    }
 
+    /// <summary>
+    /// 电子态信息
+    /// </summary>
+    public struct States
+    {
+        public int numberOfStates;
+        public string[] strMethod;
+        public int[] charge;
+        public int[] multiplicity;
     }
 
 }

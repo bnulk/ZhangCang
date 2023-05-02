@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ZhangCang.FundamentalPara.BasisSet;
 
 namespace ZhangCang.Data
 {
@@ -28,6 +24,18 @@ namespace ZhangCang.Data
         /// </summary>
         public ZMatrix zMatrix;
 
+        /// <summary>
+        /// 电子态信息
+        /// </summary>
+        public States states;
+
+
+        #region 附加信息
+        /// <summary>
+        /// 收缩高斯基组列表信息
+        /// </summary>
+        public List<CgBasisSetStruct> listCgBasisSet= new List<CgBasisSetStruct>();
+        #endregion
 
     }
 }

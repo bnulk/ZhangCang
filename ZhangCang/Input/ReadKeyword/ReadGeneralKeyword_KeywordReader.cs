@@ -184,6 +184,29 @@ namespace ZhangCang.Input.ReadKeyword
         }
 
         /// <summary>
+        /// 获取基组
+        /// </summary>
+        /// <param name="strBasisSet">字符串型基组</param>
+        /// <returns></returns>
+        public BasisSetName GetBasisSet(string strBasisSet)
+        {
+            BasisSetName basisSetName;
+            switch (strBasisSet)
+            {
+                case "sto-3g":
+                    basisSetName = BasisSetName.cgSto3g; 
+                    break;
+                case "3-21g":
+                    basisSetName = BasisSetName.cg321g;
+                    break;
+                default:
+                    basisSetName = BasisSetName.unknown;
+                    break;
+            }
+            return basisSetName;
+        }
+
+        /// <summary>
         /// 获取猜测Hessian的方法
         /// </summary>
         /// <param name="strCoordinateType">字符串型猜测Hessian的方法</param>

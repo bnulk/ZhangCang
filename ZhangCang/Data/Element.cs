@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZhangCang.FundamentalPara.BasisSet;
 
 namespace ZhangCang.Data
 {
@@ -26,6 +27,11 @@ namespace ZhangCang.Data
         /// 输入内坐标
         /// </summary>
         public ZMatrix zMatrix;
+
+        /// <summary>
+        /// 收缩高斯基组列表信息
+        /// </summary>
+        public List<CgBasisSetStruct> listCgBasisSet = new List<CgBasisSetStruct>();
 
         public Element()
         {

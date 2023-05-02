@@ -33,7 +33,7 @@ namespace ZhangCang.Input.GaussianInput
 
         public void Run()
         {
-            int numberOfAtoms = _gaussianInputPackage.N;
+            int numberOfAtoms = _gaussianInputPackage.numberOfAtom;
             Atoms atoms = new Atoms();
             int i, j;
 

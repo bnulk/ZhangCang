@@ -45,6 +45,16 @@ namespace ZhangCang.Input.ZhangCangInput
             keywordList2Keyword.Run();
             inputData.keyword = keywordList2Keyword.Keyword;
 
+            //电子态的数目和计算方法
+            if(inputData.keyword.strMethods!=null)
+            {
+                inputData.states.numberOfStates = inputData.keyword.strMethods.Length;
+                for (int i = 0; i < inputData.states.numberOfStates; i++)
+                {
+                    inputData.states.strMethod[i] = inputData.keyword.strMethods[i];
+                }
+            }            
+
             //获取分子坐标
             MoleculeList2MoleculeAndInputZMatrix moleculeList2MoleculeAndInputZMatrix = new MoleculeList2MoleculeAndInputZMatrix(moleculeList);
             moleculeList2MoleculeAndInputZMatrix.Run();
@@ -57,8 +67,26 @@ namespace ZhangCang.Input.ZhangCangInput
             //获取电荷和自旋多重度
             ChargeAndMultiplicity2ChargeAndMultiplicity chargeAndMultiplicity2Charge = new ChargeAndMultiplicity2ChargeAndMultiplicity(chargeAndMultiplicityList);
             chargeAndMultiplicity2Charge.Run();
-            inputData.molecule.charge = chargeAndMultiplicity2Charge.Charge;
-            inputData.molecule.multiplicity = chargeAndMultiplicity2Charge.Multiplicity;
+
+            if(chargeAndMultiplicity2Charge.Charge!=null)                                                //电荷
+            {
+                int cycle = chargeAndMultiplicity2Charge.Charge.Length;
+                for (int i = 0; i < cycle; i++)
+                {
+                    inputData.molecule.charge = chargeAndMultiplicity2Charge.Charge[0];
+                    inputData.states.charge[i] = chargeAndMultiplicity2Charge.Charge[i];                                    
+                }
+            }
+            if (chargeAndMultiplicity2Charge.Multiplicity != null)
+            {
+                int cycle = chargeAndMultiplicity2Charge.Multiplicity.Length;
+                for (int i = 0; i < cycle; i++)
+                {
+                    inputData.molecule.multiplicity = chargeAndMultiplicity2Charge.Multiplicity[0];
+                    inputData.states.multiplicity[i] = chargeAndMultiplicity2Charge.Multiplicity[i];
+                }
+            }
+
         }
 
         

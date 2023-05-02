@@ -149,10 +149,10 @@ namespace ZhangCang.Input.GaussianInput
             switch (gaussianInputPackage_.coordinateType)
             {
                 case CoordinateType.zMatrix:
-                    gaussianInputPackage_.N = gaussianInputPackage_.molecularSpecification_ZMatrix.Count;
+                    gaussianInputPackage_.numberOfAtom = gaussianInputPackage_.molecularSpecification_ZMatrix.Count;
                     break;
                 case CoordinateType.Cartesian:
-                    gaussianInputPackage_.N = gaussianInputPackage_.molecularCartesian.Count;
+                    gaussianInputPackage_.numberOfAtom = gaussianInputPackage_.molecularCartesian.Count;
                     break;
                 default:
                     break;

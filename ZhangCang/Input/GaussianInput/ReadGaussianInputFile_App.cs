@@ -56,16 +56,26 @@ namespace ZhangCang.Input.GaussianInput
                 inputDataGaussian_.molecule.cartesian3 = toCartesian.Cartesian3;
             }
 
-            //读电荷和自旋多重度
+            //读电荷和自旋多重度，填入States结构中
             if (inputDataGaussian_.gaussianInputPackage.chargeAndMultiplicity.Count>=2)
             {
                 int cycleMultiplicity = inputDataGaussian_.gaussianInputPackage.chargeAndMultiplicity.Count - 1;
-                inputDataGaussian_.molecule.charge = new int[cycleMultiplicity];
-                inputDataGaussian_.molecule.multiplicity = new int[cycleMultiplicity];
-                for (int i = 0; i < cycleMultiplicity; i++)
+                inputDataGaussian_.states.charge = new int[cycleMultiplicity];
+                inputDataGaussian_.states.multiplicity = new int[cycleMultiplicity];
+                inputDataGaussian_.states.strMethod= new string[cycleMultiplicity];
+
+                if (inputDataGaussian_.keyword.strMethods.Length==cycleMultiplicity)
                 {
-                    inputDataGaussian_.molecule.charge[i] = inputDataGaussian_.gaussianInputPackage.chargeAndMultiplicity[0];
-                    inputDataGaussian_.molecule.multiplicity[i] = inputDataGaussian_.gaussianInputPackage.chargeAndMultiplicity[i + 1];
+                    for (int i = 0; i < cycleMultiplicity; i++)
+                    {
+                        inputDataGaussian_.states.charge[i] = inputDataGaussian_.gaussianInputPackage.chargeAndMultiplicity[0];
+                        inputDataGaussian_.states.multiplicity[i] = inputDataGaussian_.gaussianInputPackage.chargeAndMultiplicity[i + 1];
+                        inputDataGaussian_.states.strMethod[i]= inputDataGaussian_.keyword.strMethods[i];
+                    }
+                }
+                else
+                {
+                    throw new Input_Exception("charge&multiplicity and number of Methods are inconsistent.");
                 }
             }
             else
@@ -84,6 +94,9 @@ namespace ZhangCang.Input.GaussianInput
                 }
             }                                                                                                                                      //inputDataGaussian_完成4/4；molecule
 
+            //附加部分
+            DisposeAdditionSection disposeAdditionSection = new DisposeAdditionSection(inputDataGaussian_.keyword, inputDataGaussian_.gaussianInputPackage.addition);
+            disposeAdditionSection.Run();
 
 
         }
